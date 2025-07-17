@@ -28,7 +28,7 @@ const WelcomeScreen = () => {
 
         <Text style={styles.texta}>#1 in Attendance</Text>
 
-        <Text style={styles.text}>A BLE application promising seamless attendance. Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</Text>
+        <Text style={styles.text}>A BLE application promising seamless attendance. Lorem ipsum dolor sit amet consectetur, adipisicing elit.</Text>
 
         <TouchableOpacity style={styles.button} onPress={navig}>
             <Text style={styles.buttonText}>Get Started</Text>

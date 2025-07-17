@@ -8,7 +8,7 @@ import { startAdvertising } from "../../services/advertiser";
 
 const CourseScreen = () => {
   const api = axios.create({
-    baseURL: 'http://192.168.1.73:7125/api/',
+    baseURL: 'http://192.168.43.171:7125/api/',
     timeout: 10000,
     headers: {
       'Content-Type': 'application/json',

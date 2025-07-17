@@ -11,8 +11,12 @@ const data = [
     {label: 'Lecturer' , value: 'Lecturer'},
   ]
 
+
 const signinscreen = () => {
   const router = useRouter();
+  const navig = async () => {
+    router.replace('/');
+  }
 
   const [value, setValue] = useState(null);
 
@@ -41,12 +45,12 @@ const signinscreen = () => {
 
       const studentId = data?.id.toString();
       if (!studentId) {
-        console.error("❌ Student ID not found in sign-in response:", data);
+        alert("❌ Student ID not found");
         return;
       }
 
       await saveId(studentId); // ← now safe
-      console.log("Success!");
+      //console.log("Success!");
       router.replace('/(studentScreens)/dashboardStudent');
 
     } 
@@ -54,7 +58,7 @@ const signinscreen = () => {
       const data = await signInLecturer(username, password);
       const id = data?.id.toString();
       if (!id) {
-        console.error("❌ Student ID not found in sign-in response:", data);
+        alert("❌ Lecturer ID not found", data);
         return;
       }
 
@@ -74,6 +78,9 @@ const signinscreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity style={styles.button2} onPress={navig}>
+        <Text style={styles.buttonText2}>Back</Text>
+      </TouchableOpacity>
       <Text style={styles.text}>Welcome,{"\n"}Sign In</Text>
       <View style={styles.container2}>
         
@@ -110,6 +117,7 @@ const signinscreen = () => {
             value={password}
             onChangeText={setPassword}
             secureTextEntry
+            autoCapitalize='none'
             style={styles.inputField}
           />
 
@@ -160,7 +168,7 @@ const styles = StyleSheet.create({
     fontSize: 42,
     fontWeight: 'bold',
     textAlign: 'left',
-    marginTop: 50,
+    marginTop: 30,
     marginBottom: 50,
   },
   button: {
@@ -175,6 +183,21 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'rgb(229, 225, 221)',
     fontSize: 20,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  button2: {
+    padding: 3,
+    borderRadius: 5,
+    backgroundColor: 'rgb(229, 225, 221)',
+    width: 50,
+    justifyContent: 'center',
+    alignContent: 'center',
+    margin: 10,
+  },
+  buttonText2: {
+    color: 'rgb(26, 30, 34)',
+    fontSize: 14,
     textAlign: 'center',
     fontWeight: 'bold',
   },
